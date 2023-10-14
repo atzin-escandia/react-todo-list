@@ -60,11 +60,7 @@ const App = () => {
   const handleAddTodo = ({ title }: string): void => {
     const newTodo = {
       id: crypto.randomUUID(),
-      title,
-      completed: false,
     };
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
   };
 
   return (

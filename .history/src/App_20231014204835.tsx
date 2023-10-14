@@ -57,19 +57,9 @@ const App = () => {
     return todo;
   });
 
-  const handleAddTodo = ({ title }: string): void => {
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title,
-      completed: false,
-    };
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
-  };
-
   return (
     <div className="todoapp">
-      <Header onAddTodo={handleAddTodo} />
+      <Header onAddT />
       <Todos
         todos={filteredTodos}
         onRemoveTodo={handleRemove}

@@ -3,7 +3,6 @@ import { Todos } from "./components/Todos";
 import { FilterValue, TodoType } from "./types";
 import { TODO_FILTERS } from "./consts";
 import Footer from "./components/Footer";
-import Header from "./components/header";
 
 const mockTodos = [
   { id: "1", title: "todo 1", completed: false },
@@ -43,7 +42,7 @@ const App = () => {
     setFilterSelected(filter);
   };
 
-  const handleRomoveCompleted = (): void => {
+  const handleRomoveCompleted = () => {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   };
@@ -57,19 +56,8 @@ const App = () => {
     return todo;
   });
 
-  const handleAddTodo = ({ title }: string): void => {
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title,
-      completed: false,
-    };
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
-  };
-
   return (
     <div className="todoapp">
-      <Header onAddTodo={handleAddTodo} />
       <Todos
         todos={filteredTodos}
         onRemoveTodo={handleRemove}
@@ -78,7 +66,7 @@ const App = () => {
       <Footer
         activeCount={activeCount}
         completedCount={completedCount}
-        onClearCompleted={handleRomoveCompleted}
+        onClearCompleted={() => handleRomoveCompleted}
         filterSelected={filterSelected}
         handleFilterChange={handlerFilterChange}
       />

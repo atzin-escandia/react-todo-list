@@ -7,12 +7,12 @@ interface Props {
     id,
     completed,
   }: Pick<TodoType, "id", "completed">) => void;
-  onRemoveTodo: ({ id }: Pick<TodoType, "id">) => void;
+  onHandleRemove: ({ id }: Pick<TodoType, "id">) => void;
 }
 
 export const Todos: React.FC<Props> = ({
   todos,
-  onRemoveTodo,
+  onHandleRemove,
   onToggleCompleted,
 }: Props) => {
   return (
@@ -24,7 +24,7 @@ export const Todos: React.FC<Props> = ({
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
-            onHandleRemove={onRemoveTodo}
+            onHandleRemove={onHandleRemove}
             onToggleCompleted={onToggleCompleted}
           />
         </li>

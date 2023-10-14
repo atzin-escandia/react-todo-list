@@ -63,8 +63,6 @@ const App = () => {
       title,
       completed: false,
     };
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
   };
 
   return (
